@@ -19,21 +19,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="字典树（Trie）是一种树形数据结构，主要用于高效存储和检索字符串集合。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2025/06/16/hello-world/index.html">
+<meta property="og:title" content="字典树原理">
+<meta property="og:url" content="http://example.com/2025/06/17/%E5%AD%97%E5%85%B8%E6%A0%91%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="字典树（Trie）是一种树形数据结构，主要用于高效存储和检索字符串集合。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-16T01:52:14.145Z">
-<meta property="article:modified_time" content="2025-06-16T01:52:14.145Z">
+<meta property="og:image" content="http://example.com/img/1696319534833.jpg">
+<meta property="article:published_time" content="2025-06-17T07:56:57.000Z">
+<meta property="article:modified_time" content="2025-06-17T08:08:54.664Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Trie">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/1696319534833.jpg">
   
   
   
-  <title>Hello World - Hexo</title>
+  <title>字典树原理 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,13 +196,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/1696319534833.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="字典树原理"></span>
           
         </div>
 
@@ -210,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-16 09:52" pubdate>
-          2025年6月16日 上午
+        <time datetime="2025-06-17 15:56" pubdate>
+          2025年6月17日 下午
         </time>
       </span>
     
@@ -222,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          684 字
         
       </span>
     
@@ -233,7 +236,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -270,24 +273,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">字典树原理</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <p>字典树（Trie）是一种树形数据结构，主要用于高效存储和检索字符串集合。</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="字典树的概念"><a href="#字典树的概念" class="headerlink" title="字典树的概念"></a>字典树的概念</h3><p>字典树（Trie）是一种树形数据结构，主要用于高效存储和检索字符串集合。其核心特点是利用字符串的公共前缀来减少查询时间，适合处理前缀匹配、自动补全等场景。每个节点代表一个字符，从根节点到某一节点的路径构成一个字符串。  </p>
+<h3 id="字典树的基本结构"><a href="#字典树的基本结构" class="headerlink" title="字典树的基本结构"></a>字典树的基本结构</h3><p>字典树的节点通常包含以下字段：  </p>
+<ul>
+<li>子节点指针数组（或哈希表），用于指向下一个字符。  </li>
+<li>标记字段（如<code>is_end</code>），表示从根到当前节点的路径是否构成一个完整字符串。<br>例如，存储单词<code>&quot;apple&quot;</code>和<code>&quot;app&quot;</code>时，路径<code>a-&gt;p-&gt;p-&gt;l-&gt;e</code>中，第三个<code>p</code>和<code>e</code>节点会标记为结束。</li>
+</ul>
+<h3 id="字典树的优势"><a href="#字典树的优势" class="headerlink" title="字典树的优势"></a>字典树的优势</h3><ul>
+<li><strong>高效前缀查询</strong>：查找长度为<code>m</code>的字符串时间复杂度为<code>O(m)</code>，优于哈希表的<code>O(1)</code>但无需处理哈希冲突。  </li>
+<li><strong>空间优化</strong>：共享公共前缀的字符串仅需存储一次，节省空间。  </li>
+<li><strong>动态扩展</strong>：支持动态插入和删除操作，适合实时更新场景。</li>
+</ul>
+<h3 id="字典树的应用场景"><a href="#字典树的应用场景" class="headerlink" title="字典树的应用场景"></a>字典树的应用场景</h3><p><strong>1. 搜索引擎自动补全</strong><br>输入前缀时快速推荐可能的完整词条，如Google搜索框的联想功能。  </p>
+<p><strong>2. 拼写检查与单词过滤</strong><br>通过遍历字典树检测单词是否存在，或过滤敏感词（如替换违禁词）。  </p>
+<p><strong>3. IP路由表查找</strong><br>在计算机网络中，最长前缀匹配（LPM）可通过压缩字典树（Radix Tree）高效实现。  </p>
+<p><strong>4. 词频统计与文本分析</strong><br>统计大量文本中单词的出现频率，或在DNA序列中查找特定模式。  </p>
+<h3 id="字典树的代码实现（Python示例）"><a href="#字典树的代码实现（Python示例）" class="headerlink" title="字典树的代码实现（Python示例）"></a>字典树的代码实现（Python示例）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrieNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.children = &#123;&#125;<br>        <span class="hljs-variable language_">self</span>.is_end = <span class="hljs-literal">False</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Trie</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.root = TrieNode()<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">insert</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>        node = <span class="hljs-variable language_">self</span>.root<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> word:<br>            <span class="hljs-keyword">if</span> char <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> node.children:<br>                node.children[char] = TrieNode()<br>            node = node.children[char]<br>        node.is_end = <span class="hljs-literal">True</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        node = <span class="hljs-variable language_">self</span>.root<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> word:<br>            <span class="hljs-keyword">if</span> char <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> node.children:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            node = node.children[char]<br>        <span class="hljs-keyword">return</span> node.is_end<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">startsWith</span>(<span class="hljs-params">self, prefix: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        node = <span class="hljs-variable language_">self</span>.root<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> prefix:<br>            <span class="hljs-keyword">if</span> char <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> node.children:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            node = node.children[char]<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="字典树的优化与变种"><a href="#字典树的优化与变种" class="headerlink" title="字典树的优化与变种"></a>字典树的优化与变种</h3><ul>
+<li><strong>压缩字典树（Radix Tree）</strong>：合并单一路径节点，减少空间占用。  </li>
+<li><strong>双数组字典树（Double-Array Trie）</strong>：用两个数组表示状态转移，适合大规模静态数据。  </li>
+<li><strong>后缀树（Suffix Tree）</strong>：扩展应用至字符串后缀匹配，用于基因组分析等。</li>
+</ul>
+<p>字典树在需要快速前缀匹配的场景中表现优异，结合具体需求选择实现方式可进一步提升性能。</p>
 
                 
               </div>
@@ -297,6 +313,13 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Trie/" class="print-no-link">#Trie</a>
+      
+    </div>
+  
 </div>
 
 
@@ -305,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://example.com/2025/06/16/hello-world/</div>
+      <div>字典树原理</div>
+      <div>http://example.com/2025/06/17/字典树原理/</div>
     </div>
     <div class="license-meta">
       
@@ -318,7 +341,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月16日</div>
+          <div>2025年6月17日</div>
         </div>
       
       
@@ -350,15 +373,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/06/17/%E5%AD%97%E5%85%B8%E6%A0%91%E5%8E%9F%E7%90%86/" title="字典树原理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">字典树原理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/06/16/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
